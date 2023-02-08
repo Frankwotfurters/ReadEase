@@ -1,0 +1,16 @@
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\flash_Read.exe.config
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\flash_Read.exe
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\flash_Read.pdb
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.csprojAssemblyReference.cache
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Properties.Resources.resources
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.GenerateResource.cache
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.CoreCompileInputs.cache
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.exe
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.pdb
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form1.resources
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\itextsharp.dll
+C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\itextsharp.xml
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.CopyComplete
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form2.resources
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form3.resources

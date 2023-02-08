@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flash_Read", "flash_Read\flash_Read.csproj", "{6D3DA88E-3A81-46EC-8B55-4BD0B9E2A4DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D3DA88E-3A81-46EC-8B55-4BD0B9E2A4DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3DA88E-3A81-46EC-8B55-4BD0B9E2A4DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3DA88E-3A81-46EC-8B55-4BD0B9E2A4DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3DA88E-3A81-46EC-8B55-4BD0B9E2A4DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D770B6CD-88C9-4986-8125-0C664CE0DF69}
+	EndGlobalSection
+EndGlobal
