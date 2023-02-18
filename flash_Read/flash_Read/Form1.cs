@@ -42,7 +42,7 @@ namespace flash_Read
             
 
         }
-  
+
         public void button1_Click(object sender, EventArgs e)
         {
 
@@ -228,8 +228,10 @@ namespace flash_Read
             thirdWindow.Show();
         }
 
-
-
-        
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form4 licenseWindow = new Form4();
+            licenseWindow.Show();
+        }
     }
 }
