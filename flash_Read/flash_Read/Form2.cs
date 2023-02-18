@@ -27,10 +27,7 @@ namespace flash_Read
             this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
 
             InitializeComponent();
-            Button closeButton = new Button();
-            closeButton.Text = "Close";
-            closeButton.Click += CloseButton_Click;
-            this.Controls.Add(closeButton);
+   
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -44,14 +41,15 @@ namespace flash_Read
         }
 
 
-        private void CloseButton_Click(object sender, EventArgs e)
+  
+
+        private void button5_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
             this.Close();
             running = false;
-        }
+            timer.Stop();
 
-       
+        }
 
         public void label1_Click(object sender, EventArgs e)
         {
@@ -60,8 +58,11 @@ namespace flash_Read
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.None;
+            
             button1.Visible = false;
             button2.Visible = true;
+            SendKeys.Send("{TAB}");
             int result;
             int.TryParse(timerValue, out result);
 
@@ -80,13 +81,15 @@ namespace flash_Read
         }
         private void timer_Tick(object sender, EventArgs e)
         {
+
             
-        
             string[] visualWords = extractedTexts.Split(' ');
             List<string> wordList = new List<string>(visualWords);
             
             if (running == true)
             {
+                richTextBox1.Rtf = "";
+                this.FormBorderStyle = FormBorderStyle.None;
                 if (counter >= wordList.Count && running == true)
                 {
                     counter = 0;
@@ -104,18 +107,14 @@ namespace flash_Read
                 string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red249\green148\blue23;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
+                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
                 //Console.WriteLine(boldedMiddleLetterWord);
                 Console.WriteLine(counter);
-                counter++;
+                
             }
-            
-            
-           
-            
 
 
-
+            counter++;
         }
 
         
@@ -143,7 +142,7 @@ namespace flash_Read
                 string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red249\green148\blue23;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
+                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
                 Console.WriteLine(counter);
 
             }
@@ -174,13 +173,13 @@ namespace flash_Read
                 string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red249\green148\blue23;\red255\green251\blue245;} " + boldedMiddleLetterWord;
+                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord;
                 Console.WriteLine(counter);
             }
         }
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
             richTextBox1.SelectAll();
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
             richTextBox1.ForeColor = Color.White;
@@ -189,13 +188,34 @@ namespace flash_Read
             ;
         }
 
+        private void richTextBox1_Click(object sender, EventArgs e)
+        {
+            //Do nothing
+        }
+        private void richTextBox1_MouseClick(object sender, EventArgs e)
+        {
+            //Do nothing
+        }
+        private void richTextBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Controls.Find("button2", true).First().Focus();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             running = !running;
             timer.Enabled = running;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             button3.Visible = !running;
             button4.Visible = !running;
+            
+
         }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            timer.Stop();
+        }
+
+        
     }
 }
 public class Form2 : Form

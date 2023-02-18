@@ -47,6 +47,7 @@ namespace flash_Read
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(250, 344);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 35);
@@ -72,6 +73,9 @@ namespace flash_Read
             // 
             // button2
             // 
+            this.button2.AllowDrop = true;
+            this.button2.AutoEllipsis = true;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Location = new System.Drawing.Point(27, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -79,6 +83,8 @@ namespace flash_Read
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.DragDrop += new System.Windows.Forms.DragEventHandler(this.button2_DragDrop);
+            this.button2.DragEnter += new System.Windows.Forms.DragEventHandler(this.button2_DragEnter);
             // 
             // textBox1
             // 
@@ -130,6 +136,7 @@ namespace flash_Read
             // 
             // button3
             // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Location = new System.Drawing.Point(293, 251);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -160,6 +167,7 @@ namespace flash_Read
             // 
             // button4
             // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Location = new System.Drawing.Point(293, 117);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
@@ -182,7 +190,7 @@ namespace flash_Read
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 436);
+            this.ClientSize = new System.Drawing.Size(646, 572);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox2);

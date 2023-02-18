@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 
@@ -19,6 +20,7 @@ namespace flash_Read
         public Form1()
         {
             this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
+            
 
             InitializeComponent();
         }
@@ -37,9 +39,10 @@ namespace flash_Read
             label4.ForeColor = Color.White; label4.Font = new Font("Arial", 12, FontStyle.Bold);
             label5.ForeColor = Color.White; label5.BackColor = ColorTranslator.FromHtml("#FF2D2D30"); label5.Font = new Font("Arial", 20, FontStyle.Bold);
             label6.ForeColor = Color.White; label6.Font = new Font("Arial", 12, FontStyle.Bold);
+            
 
         }
-
+  
         public void button1_Click(object sender, EventArgs e)
         {
 
@@ -121,8 +124,44 @@ namespace flash_Read
                 //MessageBox.Show(extractedText);
             }
 
-            extractedText = ":)" + extractedText;
             
+            
+        }
+        private void button2_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void button2_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                // Check if the file is a PDF and process it
+                if (System.IO.Path.GetExtension(file) == ".pdf")
+                {
+                    extractedText = "";
+                    // Do something with the PDF file
+                    Console.WriteLine("hi:   " +files);
+                    using (PdfReader reader = new PdfReader(file))
+                    {
+
+                        for (int i = 1; i <= reader.NumberOfPages; i++)
+                        {
+                            extractedText += PdfTextExtractor.GetTextFromPage(reader, i);
+                        }
+
+                        //MessageBox.Show(extractedText);
+                    }
+                }
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -188,5 +227,9 @@ namespace flash_Read
             Form3 thirdWindow = new Form3();
             thirdWindow.Show();
         }
+
+
+
+        
     }
 }

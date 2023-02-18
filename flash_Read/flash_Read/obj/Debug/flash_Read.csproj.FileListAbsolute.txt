@@ -14,3 +14,4 @@ C:\Users\Javier\source\repos\flash_Read\flash_Read\bin\Debug\itextsharp.xml
 C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.CopyComplete
 C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form2.resources
 C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form3.resources
+C:\Users\Javier\source\repos\flash_Read\flash_Read\obj\Debug\flash_Read.Form4.resources
