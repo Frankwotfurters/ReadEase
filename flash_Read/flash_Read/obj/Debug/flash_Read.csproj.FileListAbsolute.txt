@@ -32,3 +32,7 @@ D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.Core
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\flash_Read.csproj.CopyComplete
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\flash_Read.exe
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\flash_Read.pdb
+D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\bin\Debug\Microsoft.Identity.Client.dll
+D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
+D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\bin\Debug\Microsoft.Identity.Client.xml
+D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\bin\Debug\Microsoft.IdentityModel.Abstractions.xml

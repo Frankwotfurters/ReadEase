@@ -40,6 +40,7 @@ namespace flash_Read
             // 
             this.textBox1.Location = new System.Drawing.Point(16, 121);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.MaxLength = 32;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(511, 22);
             this.textBox1.TabIndex = 0;

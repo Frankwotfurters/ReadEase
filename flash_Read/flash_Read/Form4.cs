@@ -77,7 +77,9 @@ namespace flash_Read
             String keyInput = textBox1.Text;
 
             // Verify against our database
-            if (keyInput == "good") // CHANGE THIS TO ACTUAL VERIFICATION
+            String storedKey = GetLicenseKey();
+
+            if (keyInput == storedKey) // CHANGE THIS TO ACTUAL VERIFICATION
             {
                 validKey = true;
             }
