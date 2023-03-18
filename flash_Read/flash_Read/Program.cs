@@ -17,7 +17,6 @@ namespace flash_Read
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
             var main = new LoginForm();
             main.FormClosed += new FormClosedEventHandler(FormClosed);
             main.Show();

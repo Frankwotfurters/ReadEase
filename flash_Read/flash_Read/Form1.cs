@@ -18,6 +18,12 @@ namespace flash_Read
 {
     public partial class Form1 : Form
     {
+        public Form1()
+        {
+            this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
+            InitializeComponent();
+        }
+
         static string extractedText = "";
         static string timerValues ="120";
         static string filePath;
@@ -27,10 +33,10 @@ namespace flash_Read
         {
             
             label1.ForeColor = Color.White; label1.Font = new Font("Arial", 12, FontStyle.Bold);
-            label2.ForeColor = Color.White; label2.Font = new Font("Arial", 12, FontStyle.Bold);
+            //label2.ForeColor = Color.White; label2.Font = new Font("Arial", 12, FontStyle.Bold);
             label3.ForeColor = Color.White; label3.Font = new Font("Arial", 12, FontStyle.Bold);
             label4.ForeColor = Color.White; label4.Font = new Font("Arial", 12, FontStyle.Bold);
-            label5.ForeColor = Color.White; label5.BackColor = ColorTranslator.FromHtml("#FF2D2D30"); label5.Font = new Font("Arial", 20, FontStyle.Bold);
+            //label5.ForeColor = Color.White; label5.BackColor = ColorTranslator.FromHtml("#FF2D2D30"); label5.Font = new Font("Arial", 20, FontStyle.Bold);
             label6.ForeColor = Color.White; label6.Font = new Font("Arial", 12, FontStyle.Bold);
             
 
@@ -52,10 +58,24 @@ namespace flash_Read
             else
             {
                 Form2 secondWindow = new Form2();
-                // Show the second window
-                secondWindow.extractedTexts = extractedText; //to send variable to other class
-                secondWindow.timerValue = timerValues; //to send variable to other class
-                secondWindow.Show();
+                secondWindow.extractedTexts = textBox2.Text; //to send variable to other class
+
+                // check if WPM input is valid
+                int results;
+                int.TryParse(textBox1.Text, out results);
+                if (results > 0 && results < 5001)
+                {
+                    // if valid:
+                    secondWindow.timerValue = textBox1.Text; //to send variable to other class
+
+                    // Show the second window
+                    secondWindow.Show();
+                }
+                else
+                {
+                    // error
+                    MessageBox.Show("Please enter a number between 1-5000");
+                }
 
             }
 
@@ -111,7 +131,7 @@ namespace flash_Read
                 
                 for (int i = 1; i <= reader.NumberOfPages; i++)
                 {
-                    extractedText += PdfTextExtractor.GetTextFromPage(reader, i);
+                    textBox2.Text = PdfTextExtractor.GetTextFromPage(reader, i);
                 }
 
                 //MessageBox.Show(extractedText);
@@ -148,7 +168,7 @@ namespace flash_Read
 
                         for (int i = 1; i <= reader.NumberOfPages; i++)
                         {
-                            extractedText += PdfTextExtractor.GetTextFromPage(reader, i);
+                            textBox2.Text = PdfTextExtractor.GetTextFromPage(reader, i);
                         }
 
                         //MessageBox.Show(extractedText);
@@ -179,18 +199,18 @@ namespace flash_Read
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            /*
             int results;
             int.TryParse(textBox1.Text, out results);
             if (results > 0 && results < 5001)
             {
                 timerValues = textBox1.Text;
-                label5.Text = timerValues + " WPM";
             }
             else
             {
                 MessageBox.Show("Please enter a number between 1-5000");
             }
+            */
 
         }
 
@@ -211,8 +231,8 @@ namespace flash_Read
 
         private void button4_Click(object sender, EventArgs e)
         {
-            extractedText = textBox2.Text;
-            filePath = null;
+            //extractedText = textBox2.Text;
+            //filePath = null;
         }
 
         private void button5_Click(object sender, EventArgs e)

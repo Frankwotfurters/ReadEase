@@ -46,7 +46,6 @@ namespace flash_Read
             MessageBox.Show($"Welcome, {result.Account.Username}");
             Form1 mainScreen = new Form1();
             mainScreen.Show();
-            Console.WriteLine(123);
             this.Close();
         }
 
