@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Identity.Client;
+using Newtonsoft.Json;
 
 namespace flash_Read
 {
@@ -16,8 +18,7 @@ namespace flash_Read
             InitializeComponent();
             this.Load += LoginForm_Load;
         }
-
-        private async void LoginForm_Load(object sender, EventArgs e)
+        private async void promptLogin()
         {
             IPublicClientApplication app;
             app = PublicClientApplicationBuilder.Create(ClientId)
@@ -44,15 +45,53 @@ namespace flash_Read
                                     .ExecuteAsync();
                 }
                 // Do something with the authentication result
-                // For example, you can display the user's name:
                 MessageBox.Show($"Welcome, {result.Account.Username}");
                 Form1 mainScreen = new Form1();
                 mainScreen.Show();
                 this.Close();
             }
             catch (Exception ex)
-                {
+            {
                 MessageBox.Show(ex.Message + "\nPlease try logging in again.");
+            }
+        }
+        private async void LoginForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // First check if user is already logged in
+                // Get the path to the application data folder
+                String appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+                // Get the path to the properties file
+                String propertiesFilePath = Path.Combine(appDataPath, "ReadEase", "properties.json");
+
+                // Check if the properties file exists
+                if (!File.Exists(propertiesFilePath))
+                {
+                    throw new FileNotFoundException("Properties file not found.");
+                }
+                // Retrieve token from properties file
+                Properties properties = JsonConvert.DeserializeObject<Properties>(File.ReadAllText(propertiesFilePath));
+
+                // Check if user_token is valid
+                if (properties.user_token != "")
+                {
+                    // If valid
+                    Form1 mainScreen = new Form1();
+                    mainScreen.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // If not valid: prompt login
+                    promptLogin();
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                // Properties file not found
+                promptLogin();
             }
         }
 
@@ -88,41 +127,7 @@ namespace flash_Read
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            IPublicClientApplication app;
-            app = PublicClientApplicationBuilder.Create(ClientId)
-                        .WithAuthority(AadAuthorityAudience.AzureAdMultipleOrgs)
-                        .WithRedirectUri("http://localhost:3000/auth/microsoft/callback")
-                        .Build();
-
-            var accounts = await app.GetAccountsAsync();
-            var firstAccount = accounts.FirstOrDefault();
-
-            AuthenticationResult result;
-            try
-            {
-                try
-                {
-                    result = await app.AcquireTokenSilent(Scopes, firstAccount)
-                                    .ExecuteAsync();
-                }
-                catch (MsalUiRequiredException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    result = await app.AcquireTokenInteractive(Scopes)
-                                    .WithAccount(firstAccount)
-                                    .ExecuteAsync();
-                }
-                // Do something with the authentication result
-                // For example, you can display the user's name:
-                MessageBox.Show($"Welcome, {result.Account.Username}");
-                Form1 mainScreen = new Form1();
-                mainScreen.Show();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\nPlease try logging in again.");
-            }
+            promptLogin();
         }
     }
 }

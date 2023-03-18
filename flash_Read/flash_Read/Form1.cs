@@ -140,7 +140,7 @@ namespace flash_Read
             
             
         }
-        private void button2_DragEnter(object sender, DragEventArgs e)
+        private void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -152,7 +152,7 @@ namespace flash_Read
             }
         }
 
-        private void button2_DragDrop(object sender, DragEventArgs e)
+        private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files)

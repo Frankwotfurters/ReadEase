@@ -72,7 +72,6 @@ namespace flash_Read
             // 
             // button2
             // 
-            this.button2.AllowDrop = true;
             this.button2.AutoEllipsis = true;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Location = new System.Drawing.Point(36, 50);
@@ -83,8 +82,6 @@ namespace flash_Read
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.DragDrop += new System.Windows.Forms.DragEventHandler(this.button2_DragDrop);
-            this.button2.DragEnter += new System.Windows.Forms.DragEventHandler(this.button2_DragEnter);
             // 
             // textBox1
             // 
@@ -163,6 +160,9 @@ namespace flash_Read
             // 
             // Form1
             // 
+            this.AllowDrop = true;
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 704);
