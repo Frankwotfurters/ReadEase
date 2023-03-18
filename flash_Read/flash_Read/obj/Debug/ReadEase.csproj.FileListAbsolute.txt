@@ -20,3 +20,4 @@ D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\bin\Debug\Microsoft.IdentityMode
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\ReadEase.csproj.CopyComplete
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\ReadEase.exe
 D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\ReadEase.pdb
+D:\Desktop\Stuff\ReadEase\flash_Read\flash_Read\obj\Debug\flash_Read.LoginForm.resources

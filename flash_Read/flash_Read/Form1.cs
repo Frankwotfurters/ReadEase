@@ -50,7 +50,7 @@ namespace flash_Read
             //    MessageBox.Show("Please select a file");
 
             //}
-            if (string.IsNullOrEmpty(filePath) && string.IsNullOrEmpty(extractedText))
+            if (string.IsNullOrEmpty(textBox2.Text))
             {
                 // Execute statement
                 MessageBox.Show("Please select a file or paste text into textbox");
