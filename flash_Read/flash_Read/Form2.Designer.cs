@@ -100,7 +100,7 @@ namespace flash_Read
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.Transparent;
-            this.button5.Image = global::flash_Read.Properties.Resources.Close_ButtonX;
+            this.button5.Image = global::ReadEase.Properties.Resources.Close_ButtonX;
             this.button5.Location = new System.Drawing.Point(12, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(37, 37);

@@ -18,33 +18,6 @@ namespace flash_Read
 {
     public partial class Form1 : Form
     {
-        private const string ClientId = "d48e98f4-34a3-4cb0-a132-b29561204757";
-        private readonly string[] Scopes = { "User.Read" };
-        private IPublicClientApplication app;
-        public Form1()
-        {
-            this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
-            InitializeComponent();
-            app = PublicClientApplicationBuilder.Create(ClientId)
-                .WithRedirectUri("http://localhost:3000/auth/microsoft/callback")
-                .Build();
-
-            InitializeComponent();
-        }
-
-        private async void btnLogin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var result = await app.AcquireTokenInteractive(Scopes).ExecuteAsync();
-                MessageBox.Show($"Welcome {result.Account.Username}");
-            }
-            catch (MsalException ex)
-            {
-                MessageBox.Show($"Error acquiring token: {ex.Message}");
-            }
-        }
-
         static string extractedText = "";
         static string timerValues ="120";
         static string filePath;

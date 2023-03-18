@@ -44,7 +44,6 @@ namespace flash_Read
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -65,7 +64,7 @@ namespace flash_Read
             this.label1.Location = new System.Drawing.Point(32, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 17);
+            this.label1.Size = new System.Drawing.Size(150, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select a file to read from";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -106,7 +105,7 @@ namespace flash_Read
             this.label2.Location = new System.Drawing.Point(387, 234);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 17);
+            this.label2.Size = new System.Drawing.Size(182, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Input Custom Reading Speed";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -117,7 +116,7 @@ namespace flash_Read
             this.label3.Location = new System.Drawing.Point(532, 281);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Words Per Minute";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -128,7 +127,7 @@ namespace flash_Read
             this.label4.Location = new System.Drawing.Point(32, 234);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 17);
+            this.label4.Size = new System.Drawing.Size(148, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Current Reading Speed";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -139,7 +138,7 @@ namespace flash_Read
             this.label5.Location = new System.Drawing.Point(32, 281);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 17);
+            this.label5.Size = new System.Drawing.Size(64, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "120 WPM";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -162,7 +161,7 @@ namespace flash_Read
             this.label6.Location = new System.Drawing.Point(387, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Paste text";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -211,22 +210,11 @@ namespace flash_Read
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(55, 374);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(157, 71);
-            this.btnLogin.TabIndex = 14;
-            this.btnLogin.Text = "Login with MicrosoftTM";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 704);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -267,7 +255,6 @@ namespace flash_Read
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button btnLogin;
     }
 }
 
