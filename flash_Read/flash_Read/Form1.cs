@@ -24,10 +24,7 @@ namespace flash_Read
             InitializeComponent();
         }
 
-        static string extractedText = "";
-        static string timerValues ="120";
         static string filePath;
-        static string customText;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -122,7 +119,6 @@ namespace flash_Read
                 filePath = openFileDialog.FileName;
                 // Do something with the file path, such as display it in a label
                 label1.Text = filePath;
-                extractedText = "";
                 textBox2.Text = "";
             }
             //MessageBox.Show(label1.Text);
@@ -160,9 +156,7 @@ namespace flash_Read
                 // Check if the file is a PDF and process it
                 if (System.IO.Path.GetExtension(file) == ".pdf")
                 {
-                    extractedText = "";
                     // Do something with the PDF file
-                    Console.WriteLine("hi:   " +files);
                     using (PdfReader reader = new PdfReader(file))
                     {
 
@@ -173,6 +167,10 @@ namespace flash_Read
 
                         //MessageBox.Show(extractedText);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Only PDF files are accepted!");
                 }
             }
         }
@@ -197,23 +195,6 @@ namespace flash_Read
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            /*
-            int results;
-            int.TryParse(textBox1.Text, out results);
-            if (results > 0 && results < 5001)
-            {
-                timerValues = textBox1.Text;
-            }
-            else
-            {
-                MessageBox.Show("Please enter a number between 1-5000");
-            }
-            */
-
-        }
-
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             
@@ -227,12 +208,6 @@ namespace flash_Read
         private void label6_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //extractedText = textBox2.Text;
-            //filePath = null;
         }
 
         private void button5_Click(object sender, EventArgs e)

@@ -49,6 +49,28 @@ namespace flash_Read
                 Form1 mainScreen = new Form1();
                 mainScreen.Show();
                 this.Close();
+
+                // Get the path to the application data folder
+                String appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+                // Get the path to the properties file
+                String propertiesFilePath = Path.Combine(appDataPath, "ReadEase", "properties.json");
+
+                Properties properties;
+
+                // Check if the properties file exists
+                if (File.Exists(propertiesFilePath))
+                {
+                    // Retrieve existing properties
+                    properties = JsonConvert.DeserializeObject<Properties>(File.ReadAllText(propertiesFilePath));
+                }
+                else
+                {
+                    properties = new Properties();
+                }
+
+                properties.user_token = result.Account.Username;
+                File.WriteAllText(propertiesFilePath, JsonConvert.SerializeObject(properties));
             }
             catch (Exception ex)
             {
@@ -75,7 +97,7 @@ namespace flash_Read
                 Properties properties = JsonConvert.DeserializeObject<Properties>(File.ReadAllText(propertiesFilePath));
 
                 // Check if user_token is valid
-                if (properties.user_token != "")
+                if (properties.user_token != null) // TODO: CHANGE THIS
                 {
                     // If valid
                     Form1 mainScreen = new Form1();
