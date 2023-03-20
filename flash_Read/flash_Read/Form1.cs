@@ -14,7 +14,7 @@ using Microsoft.Identity.Client;
 
 
 
-namespace flash_Read
+namespace readEase
 {
     public partial class Form1 : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace flash_Read
+namespace readEase
 {
     partial class Form1
     {
@@ -45,7 +45,7 @@ namespace flash_Read
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(333, 423);
+            this.button1.Location = new System.Drawing.Point(333, 384);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 43);
@@ -57,12 +57,13 @@ namespace flash_Read
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 11);
+            this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 16);
+            this.label1.Size = new System.Drawing.Size(318, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Select a file to read from";
+            this.label1.Text = "Select a file to read from or Drag and Drop a PDF file";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // openFileDialog1
@@ -74,7 +75,7 @@ namespace flash_Read
             // 
             this.button2.AutoEllipsis = true;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(36, 50);
+            this.button2.Location = new System.Drawing.Point(27, 60);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
@@ -85,18 +86,24 @@ namespace flash_Read
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(35, 275);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(333, 308);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.MaxLength = 4;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "300";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(175, 278);
+            this.label3.Location = new System.Drawing.Point(343, 334);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 16);
@@ -107,7 +114,7 @@ namespace flash_Read
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 234);
+            this.label4.Location = new System.Drawing.Point(330, 288);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 16);
@@ -118,7 +125,7 @@ namespace flash_Read
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(387, 11);
+            this.label6.Location = new System.Drawing.Point(373, 100);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 16);
@@ -128,7 +135,7 @@ namespace flash_Read
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(391, 50);
+            this.textBox2.Location = new System.Drawing.Point(228, 120);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.MaxLength = 2147483647;
             this.textBox2.Multiline = true;
@@ -139,7 +146,7 @@ namespace flash_Read
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(769, 494);
+            this.button5.Location = new System.Drawing.Point(800, 494);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(48, 28);
@@ -161,8 +168,6 @@ namespace flash_Read
             // Form1
             // 
             this.AllowDrop = true;
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 704);
@@ -180,6 +185,8 @@ namespace flash_Read
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

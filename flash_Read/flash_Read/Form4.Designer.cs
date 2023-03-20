@@ -1,5 +1,5 @@
 ﻿
-namespace flash_Read
+namespace readEase
 {
     partial class Form4
     {

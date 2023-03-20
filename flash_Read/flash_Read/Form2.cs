@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace flash_Read
+namespace readEase
 {
     public partial class Form2 : Form
     {
@@ -153,7 +153,7 @@ namespace flash_Read
         private void button4_Click(object sender, EventArgs e)
         {
             
-            string[] visualWords = extractedTexts.Split(' ');
+            string[] visualWords = extractedTexts.Split();
             List<string> wordList = new List<string>(visualWords);
             if (counter < wordList.Count - 1)
             {
@@ -162,8 +162,7 @@ namespace flash_Read
 
                 string currentWord = wordList[counter].Trim();
 
-
-
+                Console.WriteLine(currentWord);
                 if (string.IsNullOrEmpty(currentWord) && running == true)
                 {
                     counter++;
