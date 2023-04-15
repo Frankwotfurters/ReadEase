@@ -20,10 +20,13 @@ namespace readEase
     {
         public Form1()
         {
-            this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
+            bgColor = ColorTranslator.FromHtml("#FF2D2D30");
+            this.BackColor = bgColor;
             InitializeComponent();
         }
 
+        private Color bgColor;
+        private Color textColor;
         static string filePath;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,6 +67,8 @@ namespace readEase
                 {
                     // if valid:
                     secondWindow.timerValue = textBox1.Text; //to send variable to other class
+                    secondWindow.bgColor = bgColor;
+                    secondWindow.textColor = textColor;
 
                     // Show the second window
                     secondWindow.Show();
@@ -220,6 +225,23 @@ namespace readEase
         {
             Form4 licenseWindow = new Form4();
             licenseWindow.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Dark red theme
+            bgColor = ColorTranslator.FromHtml("#FF8375");
+            textColor = ColorTranslator.FromHtml("#FFFF8375");
+            this.BackColor = ColorTranslator.FromHtml("#FF8375");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Pastel blue theme
+            bgColor = ColorTranslator.FromHtml("#A7C7E7");
+            textColor = ColorTranslator.FromHtml("#20374F");
+            this.BackColor = ColorTranslator.FromHtml("#A7C7E7");
+            label1.ForeColor = textColor;
         }
     }
 }

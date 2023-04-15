@@ -16,6 +16,8 @@ namespace readEase
         
         public string extractedTexts { get; set; }
         public string timerValue { get; set; }
+        public Color bgColor { get; set; }
+        public Color textColor { get; set; }
 
         bool running = true;
         
@@ -25,7 +27,6 @@ namespace readEase
         public Form2()
         {
             this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
-
             InitializeComponent();
    
         }
@@ -36,12 +37,11 @@ namespace readEase
             button3.Visible = !running;
             button4.Visible = !running;
             button2.Visible = false;
-            richTextBox1.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
             richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.BackColor = bgColor;
+            richTextBox1.ForeColor = textColor;
+            this.BackColor = bgColor;
         }
-
-
-  
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -181,9 +181,8 @@ namespace readEase
             
             richTextBox1.SelectAll();
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-            richTextBox1.ForeColor = Color.White;
-            richTextBox1.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
-
+            richTextBox1.ForeColor = textColor;
+            richTextBox1.BackColor = bgColor;
             ;
         }
 
