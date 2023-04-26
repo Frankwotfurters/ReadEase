@@ -21,12 +21,15 @@ namespace readEase
         public Form1()
         {
             bgColor = ColorTranslator.FromHtml("#FF2D2D30");
+            textColor = Color.White;
+            boldColor = ColorTranslator.FromHtml("#80423B");
             this.BackColor = bgColor;
             InitializeComponent();
         }
 
         private Color bgColor;
         private Color textColor;
+        private Color boldColor;
         static string filePath;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -69,6 +72,7 @@ namespace readEase
                     secondWindow.timerValue = textBox1.Text; //to send variable to other class
                     secondWindow.bgColor = bgColor;
                     secondWindow.textColor = textColor;
+                    secondWindow.boldColor = boldColor;
 
                     // Show the second window
                     secondWindow.Show();
@@ -231,7 +235,8 @@ namespace readEase
         {
             //Dark red theme
             bgColor = ColorTranslator.FromHtml("#FF8375");
-            textColor = ColorTranslator.FromHtml("#FFFF8375");
+            textColor = ColorTranslator.FromHtml("#CC695E");
+            boldColor = ColorTranslator.FromHtml("#80423B");
             this.BackColor = ColorTranslator.FromHtml("#FF8375");
         }
 
@@ -240,7 +245,18 @@ namespace readEase
             //Pastel blue theme
             bgColor = ColorTranslator.FromHtml("#A7C7E7");
             textColor = ColorTranslator.FromHtml("#20374F");
+            boldColor = ColorTranslator.FromHtml("#4B5A69");
             this.BackColor = ColorTranslator.FromHtml("#A7C7E7");
+            label1.ForeColor = textColor;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Pastel purple theme
+            bgColor = ColorTranslator.FromHtml("#C6A7E8");
+            textColor = ColorTranslator.FromHtml("#594B69");
+            boldColor = ColorTranslator.FromHtml("#48286B");
+            this.BackColor = ColorTranslator.FromHtml("#C6A7E8");
             label1.ForeColor = textColor;
         }
     }

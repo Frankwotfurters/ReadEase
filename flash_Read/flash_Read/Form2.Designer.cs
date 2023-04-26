@@ -39,9 +39,10 @@ namespace readEase
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 12);
+            this.button1.Location = new System.Drawing.Point(951, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,11 +54,14 @@ namespace readEase
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 165);
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 58F);
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 206);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.MaxLength = 2147483;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(776, 273);
+            this.richTextBox1.Size = new System.Drawing.Size(1066, 335);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             this.richTextBox1.Click += new System.EventHandler(this.richTextBox1_Click);
@@ -67,9 +71,10 @@ namespace readEase
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(340, 112);
+            this.button2.Location = new System.Drawing.Point(471, 140);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 23);
+            this.button2.Size = new System.Drawing.Size(125, 28);
             this.button2.TabIndex = 3;
             this.button2.Text = "Pause/Unpause";
             this.button2.UseVisualStyleBackColor = true;
@@ -77,9 +82,10 @@ namespace readEase
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(301, 112);
+            this.button3.Location = new System.Drawing.Point(419, 140);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 23);
+            this.button3.Size = new System.Drawing.Size(44, 28);
             this.button3.TabIndex = 4;
             this.button3.Text = "<";
             this.button3.UseVisualStyleBackColor = true;
@@ -87,9 +93,10 @@ namespace readEase
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(440, 112);
+            this.button4.Location = new System.Drawing.Point(604, 140);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 23);
+            this.button4.Size = new System.Drawing.Size(44, 28);
             this.button4.TabIndex = 5;
             this.button4.Text = ">";
             this.button4.UseVisualStyleBackColor = true;
@@ -101,24 +108,26 @@ namespace readEase
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.Transparent;
             this.button5.Image = global::ReadEase.Properties.Resources.Close_ButtonX;
-            this.button5.Location = new System.Drawing.Point(12, 12);
+            this.button5.Location = new System.Drawing.Point(16, 15);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(37, 37);
+            this.button5.Size = new System.Drawing.Size(49, 46);
             this.button5.TabIndex = 6;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

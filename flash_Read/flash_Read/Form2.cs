@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static RichTextBoxExtensions;
 
 namespace readEase
 {
@@ -18,6 +19,7 @@ namespace readEase
         public string timerValue { get; set; }
         public Color bgColor { get; set; }
         public Color textColor { get; set; }
+        public Color boldColor { get; set; }
 
         bool running = true;
         
@@ -107,10 +109,7 @@ namespace readEase
                 string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
-                //Console.WriteLine(boldedMiddleLetterWord);
-                Console.WriteLine(counter);
-                
+                richTextBox1.Rtf = $@"{{\rtf1\ansi{{\colortbl;\red{boldColor.R}\green{boldColor.G}\blue{boldColor.B};\red{textColor.R}\green{textColor.G}\blue{textColor.B};}} " + boldedMiddleLetterWord + "}\rtf1";                
             }
 
 
@@ -173,7 +172,6 @@ namespace readEase
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
                 richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord;
-                Console.WriteLine(counter);
             }
         }
         private void richTextBox1_TextChanged(object sender, EventArgs e)
