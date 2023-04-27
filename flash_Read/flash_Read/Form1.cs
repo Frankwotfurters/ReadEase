@@ -22,7 +22,7 @@ namespace readEase
         {
             bgColor = ColorTranslator.FromHtml("#FF2D2D30");
             textColor = Color.White;
-            boldColor = ColorTranslator.FromHtml("#80423B");
+            boldColor = ColorTranslator.FromHtml("#CC5440");
             this.BackColor = bgColor;
             InitializeComponent();
         }
