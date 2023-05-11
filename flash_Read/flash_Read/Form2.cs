@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using static System.Drawing.Text.PrivateFontCollection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static RichTextBoxExtensions;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
 
 namespace readEase
 {
+
     public partial class Form2 : Form
     {
         int counter = 0;
@@ -83,8 +87,25 @@ namespace readEase
         }
         private void timer_Tick(object sender, EventArgs e)
         {
+            //Create your private font collection object.
+            PrivateFontCollection pfc = new PrivateFontCollection();
 
-            
+            //Select your font from the resources.
+            //My font here is "Digireu.ttf"
+            int fontLength = ReadEase.Properties.Resources.ClintonBold.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = ReadEase.Properties.Resources.ClintonBold;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            // pass the font to the font collection
+            pfc.AddMemoryFont(data, fontLength);
+
             string[] visualWords = extractedTexts.Split(' ');
             List<string> wordList = new List<string>(visualWords);
             
@@ -105,11 +126,14 @@ namespace readEase
                     return;
                 }
 
+
                 int middleIndex = currentWord.Length / 2;
                 string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
                 string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
                 string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
                 richTextBox1.Rtf = $@"{{\rtf1\ansi{{\colortbl;\red{boldColor.R}\green{boldColor.G}\blue{boldColor.B};\red{textColor.R}\green{textColor.G}\blue{textColor.B};}} " + boldedMiddleLetterWord + "}\rtf1";                
+                richTextBox1.SelectAll();
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48, FontStyle.Bold);
             }
 
 

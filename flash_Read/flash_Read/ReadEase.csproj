@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extension.cs" />
-    <Compile Include="Properties.cs" />
+    <Compile Include="UserProperties.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +134,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ClintonBold.ttf" />
     <None Include="Resources\Close_ButtonX.png" />
   </ItemGroup>
   <ItemGroup>

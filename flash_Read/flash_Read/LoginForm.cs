@@ -59,17 +59,17 @@ namespace readEase
                 // Get the path to the properties file
                 String propertiesFilePath = Path.Combine(appDataPath, "ReadEase", "properties.json");
 
-                Properties properties;
+                UserProperties properties;
 
                 // Check if the properties file exists
                 if (File.Exists(propertiesFilePath))
                 {
                     // Retrieve existing properties
-                    properties = JsonConvert.DeserializeObject<Properties>(File.ReadAllText(propertiesFilePath));
+                    properties = JsonConvert.DeserializeObject<UserProperties>(File.ReadAllText(propertiesFilePath));
                 }
                 else
                 {
-                    properties = new Properties();
+                    properties = new UserProperties();
                 }
 
                 properties.user_token = result.Account.Username;
@@ -97,7 +97,7 @@ namespace readEase
                     throw new FileNotFoundException("Properties file not found.");
                 }
                 // Retrieve token from properties file
-                Properties properties = JsonConvert.DeserializeObject<Properties>(File.ReadAllText(propertiesFilePath));
+                UserProperties properties = JsonConvert.DeserializeObject<UserProperties>(File.ReadAllText(propertiesFilePath));
 
                 // Check if user_token is valid
                 if (properties.user_token != null) // TODO: CHANGE THIS
