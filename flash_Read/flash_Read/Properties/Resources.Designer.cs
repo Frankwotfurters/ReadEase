@@ -63,6 +63,16 @@ namespace ReadEase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Clinton_semibold {
+            get {
+                object obj = ResourceManager.GetObject("Clinton_semibold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ClintonBold {
             get {
                 object obj = ResourceManager.GetObject("ClintonBold", resourceCulture);

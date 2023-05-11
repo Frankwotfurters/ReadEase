@@ -121,6 +121,9 @@
   <data name="ClintonBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClintonBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Clinton_semibold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clinton semibold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Close_ButtonX" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_ButtonX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

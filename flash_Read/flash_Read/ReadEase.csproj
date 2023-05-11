@@ -134,6 +134,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Clinton semibold.ttf" />
     <None Include="Resources\ClintonBold.ttf" />
     <None Include="Resources\Close_ButtonX.png" />
   </ItemGroup>

@@ -18,6 +18,8 @@ namespace readEase
     public partial class Form2 : Form
     {
         int counter = 0;
+        //Create your private font collection object.
+        PrivateFontCollection pfc = new PrivateFontCollection();
         
         public string extractedTexts { get; set; }
         public string timerValue { get; set; }
@@ -33,6 +35,36 @@ namespace readEase
         public Form2()
         {
             this.BackColor = ColorTranslator.FromHtml("#FF2D2D30");
+
+            //Select your font from the resources.
+            int fontLength = ReadEase.Properties.Resources.Clinton_semibold.Length;
+
+            // create a buffer to read in to
+            byte[] fontdata = ReadEase.Properties.Resources.Clinton_semibold;
+
+            // create an unsafe memory block for the font data
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            // pass the font to the font collection
+            pfc.AddMemoryFont(data, fontLength);
+
+            //Select your font from the resources.
+            fontLength = ReadEase.Properties.Resources.ClintonBold.Length;
+
+            // create a buffer to read in to
+            fontdata = ReadEase.Properties.Resources.ClintonBold;
+
+            // create an unsafe memory block for the font data
+            data = Marshal.AllocCoTaskMem(fontLength);
+
+            // copy the bytes to the unsafe memory block
+            Marshal.Copy(fontdata, 0, data, fontLength);
+
+            // pass the font to the font collection
+            pfc.AddMemoryFont(data, fontLength);
             InitializeComponent();
    
         }
@@ -87,25 +119,6 @@ namespace readEase
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-            //Create your private font collection object.
-            PrivateFontCollection pfc = new PrivateFontCollection();
-
-            //Select your font from the resources.
-            //My font here is "Digireu.ttf"
-            int fontLength = ReadEase.Properties.Resources.ClintonBold.Length;
-
-            // create a buffer to read in to
-            byte[] fontdata = ReadEase.Properties.Resources.ClintonBold;
-
-            // create an unsafe memory block for the font data
-            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
-
-            // copy the bytes to the unsafe memory block
-            Marshal.Copy(fontdata, 0, data, fontLength);
-
-            // pass the font to the font collection
-            pfc.AddMemoryFont(data, fontLength);
-
             string[] visualWords = extractedTexts.Split(' ');
             List<string> wordList = new List<string>(visualWords);
             
@@ -127,13 +140,22 @@ namespace readEase
                 }
 
 
-                int middleIndex = currentWord.Length / 2;
-                string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
-                string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
-                string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = $@"{{\rtf1\ansi{{\colortbl;\red{boldColor.R}\green{boldColor.G}\blue{boldColor.B};\red{textColor.R}\green{textColor.G}\blue{textColor.B};}} " + boldedMiddleLetterWord + "}\rtf1";                
-                richTextBox1.SelectAll();
+                int middleIndex = (int) Math.Ceiling((double) currentWord.Length / 2);
+                richTextBox1.Text = currentWord;
+                // First half
+                richTextBox1.Select(0, middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 52, FontStyle.Bold);
+                richTextBox1.SelectionColor = textColor;
+
+                // Second Half
+                richTextBox1.Select(middleIndex, currentWord.Length-middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48);
+
+                // Middle letter
+                richTextBox1.Select(middleIndex-1, 1);
                 richTextBox1.SelectionFont = new Font(pfc.Families[0], 48, FontStyle.Bold);
+                richTextBox1.Select(middleIndex - 1, 1);
+                richTextBox1.SelectionColor = boldColor;
             }
 
 
@@ -161,12 +183,22 @@ namespace readEase
                     counter--;
                     return;
                 }
-                int middleIndex = currentWord.Length / 2;
-                string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
-                string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
-                string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord + "}\rtf1";
-                Console.WriteLine(counter);
+                int middleIndex = (int)Math.Ceiling((double)currentWord.Length / 2);
+                richTextBox1.Text = currentWord;
+                // First half
+                richTextBox1.Select(0, middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 52, FontStyle.Bold);
+                richTextBox1.SelectionColor = textColor;
+
+                // Second Half
+                richTextBox1.Select(middleIndex, currentWord.Length - middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48);
+
+                // Middle letter
+                richTextBox1.Select(middleIndex - 1, 1);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48, FontStyle.Bold);
+                richTextBox1.Select(middleIndex - 1, 1);
+                richTextBox1.SelectionColor = boldColor;
 
             }
             
@@ -191,11 +223,22 @@ namespace readEase
                     counter++;
                     return;
                 }
-                int middleIndex = currentWord.Length / 2;
-                string firstHalf = "\\cf2\\fs58 " + currentWord.Substring(0, middleIndex);
-                string secondHalf = "\\cf2 " + currentWord.Substring(middleIndex + 1, currentWord.Length - middleIndex - 1);
-                string boldedMiddleLetterWord = firstHalf + "\\b\\fs58\\cf1 " + currentWord[middleIndex] + "\\b0\\fs54\\cf1" + secondHalf;
-                richTextBox1.Rtf = @"{\rtf1\ansi{\colortbl;\red204\green84\blue64;\red255\green251\blue245;} " + boldedMiddleLetterWord;
+                int middleIndex = (int)Math.Ceiling((double)currentWord.Length / 2);
+                richTextBox1.Text = currentWord;
+                // First half
+                richTextBox1.Select(0, middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 52, FontStyle.Bold);
+                richTextBox1.SelectionColor = textColor;
+
+                // Second Half
+                richTextBox1.Select(middleIndex, currentWord.Length - middleIndex);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48);
+
+                // Middle letter
+                richTextBox1.Select(middleIndex - 1, 1);
+                richTextBox1.SelectionFont = new Font(pfc.Families[0], 48, FontStyle.Bold);
+                richTextBox1.Select(middleIndex - 1, 1);
+                richTextBox1.SelectionColor = boldColor;
             }
         }
         private void richTextBox1_TextChanged(object sender, EventArgs e)
