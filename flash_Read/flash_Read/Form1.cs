@@ -263,10 +263,10 @@ namespace readEase
         private void button8_Click(object sender, EventArgs e)
         {
             //Dark blue theme
-            bgColor = ColorTranslator.FromHtml("#ECE7E4");
-            textColor = ColorTranslator.FromHtml("#193C80");
-            boldColor = ColorTranslator.FromHtml("#48286B");
-            this.BackColor = ColorTranslator.FromHtml("#ECE7E4");
+            bgColor = ColorTranslator.FromHtml("#EAE5E2");
+            textColor = ColorTranslator.FromHtml("#1F377D");
+            boldColor = ColorTranslator.FromHtml("#1F377D");
+            this.BackColor = ColorTranslator.FromHtml("#EAE5E2");
             label1.ForeColor = textColor;
         }
     }
